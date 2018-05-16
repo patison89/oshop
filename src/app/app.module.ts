@@ -1,12 +1,13 @@
+import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-import {AngularFireModule} from "angularfire2";
-import {AngularFireDatabaseModule} from "angularfire2/database";
-import {environment} from "../environments/environment";
-import {AngularFireAuthModule} from "angularfire2/auth";
+import {AngularFireModule} from 'angularfire2';
+import {AngularFireDatabaseModule} from 'angularfire2/database';
+import {environment} from '../environments/environment';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
@@ -17,13 +18,13 @@ import { OrderSuccessComponent } from './order-success/order-success.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
 import { AdminProductsComponent } from './admin/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
-import {RouterModule} from "@angular/router";
-import {LoginComponent} from "./login/login.component";
-import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {AuthService} from "./services/auth.service";
-import {AuthGuard} from "./services/auth-guard.service";
-import {UserService} from "./services/user.service";
-import {AdminAuthGuard} from "./services/admin-auth-guard.service";
+import {RouterModule} from '@angular/router';
+import {LoginComponent} from './login/login.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {AuthService} from './services/auth.service';
+import {AuthGuard} from './services/auth-guard.service';
+import {UserService} from './services/user.service';
+import {AdminAuthGuard} from './services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 
@@ -48,6 +49,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AngularFireDatabaseModule,
     AngularFireAuthModule,
     NgbModule.forRoot(),
+    FormsModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'products', component: ProductsComponent},
