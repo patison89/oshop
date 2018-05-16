@@ -20,9 +20,10 @@ import {RouterModule} from "@angular/router";
 import {LoginComponent} from "./login/login.component";
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {AuthService} from "./services/auth.service";
-import {AuthGuardService} from "./services/auth-guard.service";
+import {AuthGuard} from "./services/auth-guard.service";
 import {UserService} from "./services/user.service";
 import {AdminAuthGuardService} from "./services/admin-auth-guard.service";
+import { ProductFormComponent } from './admin/product-form/product-form.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {AdminAuthGuardService} from "./services/admin-auth-guard.service";
     MyOrdersComponent,
     AdminProductsComponent,
     AdminOrdersComponent,
-    LoginComponent
+    LoginComponent,
+    ProductFormComponent
   ],
   imports: [
     BrowserModule,
@@ -50,18 +52,20 @@ import {AdminAuthGuardService} from "./services/admin-auth-guard.service";
       {path: 'products', component: ProductsComponent},
       {path: 'login', component: LoginComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
-      {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
-      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuardService]},
-      {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuardService]},
+      {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},
+      {path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGuard]},
+      {path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGuard]},
       {path: 'admin/products', component: AdminProductsComponent,
-        canActivate: [AuthGuardService, AdminAuthGuardService]},
+        canActivate: [AuthGuard, AdminAuthGuardService]},
+      {path: 'admin/products/new', component: ProductFormComponent,
+        canActivate: [AuthGuard, AdminAuthGuardService]},
       {path: 'admin/orders', component: AdminOrdersComponent,
-        canActivate: [AuthGuardService, AdminAuthGuardService]},
+        canActivate: [AuthGuard, AdminAuthGuardService]},
     ])
   ],
   providers: [
     AuthService,
-    AuthGuardService,
+    AuthGuard,
     UserService,
     AdminAuthGuardService
   ],
