@@ -12,6 +12,7 @@ import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import {CategoryService} from './services/category.service';
+import {ProductService} from './services/product.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
@@ -71,7 +72,8 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AuthGuard,
     UserService,
     AdminAuthGuard,
-    CategoryService
+    CategoryService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })
