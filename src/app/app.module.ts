@@ -1,6 +1,7 @@
 import {FormsModule} from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {CustomFormsModule} from 'ng2-validation';
 
 
 import { AppComponent } from './app.component';
@@ -51,6 +52,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     AngularFireAuthModule,
     NgbModule.forRoot(),
     FormsModule,
+    CustomFormsModule,
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'products', component: ProductsComponent},
