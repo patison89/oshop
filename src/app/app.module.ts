@@ -28,6 +28,7 @@ import {AuthGuard} from './services/auth-guard.service';
 import {UserService} from './services/user.service';
 import {AdminAuthGuard} from './services/admin-auth-guard.service';
 import { ProductFormComponent } from './admin/product-form/product-form.component';
+import {DataTableModule} from 'angular5-data-table';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import { ProductFormComponent } from './admin/product-form/product-form.componen
     NgbModule.forRoot(),
     FormsModule,
     CustomFormsModule,
+    DataTableModule.forRoot(),
     RouterModule.forRoot([
       {path: '', component: HomeComponent},
       {path: 'products', component: ProductsComponent},
