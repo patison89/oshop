@@ -11,7 +11,6 @@ import {ProductService} from '../../services/product.service';
 })
 export class AdminProductsComponent implements OnInit, OnDestroy {
   products: Product[];
-  filteredProducts: Product[];
   subscription: Subscription;
   tableResource: DataTableResource<Product>;
   items: Product[] = [];
@@ -21,7 +20,7 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.productService.getAll().subscribe(products => {
-      this.filteredProducts = this.products = products;
+      this.products = products;
       this.initializeTable(products);
     });
   }
@@ -39,7 +38,8 @@ export class AdminProductsComponent implements OnInit, OnDestroy {
   }
   filter(query: string) {
     console.log(query);
-    this.filteredProducts = (query) ? this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : this.products;
+     const filteredProducts = (query) ? this.products.filter(p => p.title.toLowerCase().includes(query.toLowerCase())) : this.products;
+    this.initializeTable(filteredProducts);
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
