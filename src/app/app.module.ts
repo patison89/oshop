@@ -14,6 +14,7 @@ import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import {CategoryService} from './services/category.service';
 import {ProductService} from './services/product.service';
+import {ShoppingCartService} from './services/shopping-cart.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { OrderSuccessComponent } from './order-success/order-success.component';
@@ -83,7 +84,8 @@ import { ProductCardComponent } from './products/product-card/product-card.compo
     UserService,
     AdminAuthGuard,
     CategoryService,
-    ProductService
+    ProductService,
+    ShoppingCartService
   ],
   bootstrap: [AppComponent]
 })
