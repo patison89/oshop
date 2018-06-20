@@ -13,6 +13,7 @@ import { BsNavbarComponent } from './bs-navbar/bs-navbar.component';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import {CategoryService} from './services/category.service';
+import {OrderService} from './services/order.service';
 import {ProductService} from './services/product.service';
 import {ShoppingCartService} from './services/shopping-cart.service';
 import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
@@ -87,7 +88,8 @@ import { ProductQuantityComponent } from './product-quantity/product-quantity.co
     AdminAuthGuard,
     CategoryService,
     ProductService,
-    ShoppingCartService
+    ShoppingCartService,
+    OrderService
   ],
   bootstrap: [AppComponent]
 })
