@@ -1,4 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 import {Order} from '../models/order';
 import {ShoppingCart} from '../models/shopping-cart';
@@ -19,7 +20,8 @@ export class CheckoutComponent implements OnInit, OnDestroy {
 
   constructor(private shoppingCartService: ShoppingCartService,
               private orderService: OrderService,
-              private authService: AuthService) {}
+              private authService: AuthService,
+              private router: Router) {}
 
   async ngOnInit() {
     const cart$ = await this.shoppingCartService.getCart();
@@ -29,9 +31,10 @@ export class CheckoutComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     this.subscription.unsubscribe();
   }
-  placeOrder() {
+  async placeOrder() {
     const order = new Order(this.userId, this.shipping, this.cart);
-    this.orderService.storeOrder(order);
+    const result = await this.orderService.storeOrder(order);
+    this.router.navigate(['order-success', result.key]);
   }
 
 
