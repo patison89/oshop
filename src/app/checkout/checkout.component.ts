@@ -30,22 +30,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
   placeOrder() {
-    const order = {
-      userId: this.userId,
-      datePlaced: new Date().getTime(),
-      shipping: this.shipping,
-      items: this.cart.items.map(item => {
-        return {
-          product: {
-            title: item.title,
-            imageUrl: item.imageUrl,
-            price: item.price
-          },
-          quantity: item.quantity,
-          totalPrice: item.totalPrice
-        };
-      })
-    };
+    const order = new Order(this.userId, this.shipping, this.cart);
     this.orderService.storeOrder(order);
   }
 
