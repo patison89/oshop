@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {OrderSuccessComponent} from '../order-success/order-success.component';
+import {OrderSuccessComponent} from './components/order-success/order-success.component';
 import {AuthGuard} from '../shared/services/auth-guard.service';
 import {SharedModule} from '../shared/shared.module';
 import {CheckoutComponent} from './components/checkout/checkout.component';
@@ -18,7 +18,7 @@ import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.co
     CommonModule,
     SharedModule,
     FormsModule,
-    RouterModule.forRoot([
+    RouterModule.forChild([
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
       {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuard]},

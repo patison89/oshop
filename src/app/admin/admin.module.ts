@@ -16,7 +16,7 @@ import {AdminAuthGuard} from './services/admin-auth-guard.service';
     FormsModule,
     SharedModule,
     DataTableModule,
-    RouterModule.forRoot([
+    RouterModule.forChild([
       {path: 'admin/products/new', component: ProductFormComponent,
         canActivate: [AuthGuard, AdminAuthGuard]},
       {path: 'admin/products/:id', component: ProductFormComponent,
