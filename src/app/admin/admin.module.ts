@@ -3,6 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
 import {DataTableModule} from 'angular5-data-table';
+import {AuthGuard} from '../shared/services/auth-guard.service';
 import {SharedModule} from '../shared/shared.module';
 import {AdminOrdersComponent} from './components/admin-orders/admin-orders.component';
 import {AdminProductsComponent} from './components/admin-products/admin-products.component';
@@ -15,7 +16,16 @@ import {AdminAuthGuard} from './services/admin-auth-guard.service';
     FormsModule,
     SharedModule,
     DataTableModule,
-    RouterModule
+    RouterModule.forRoot([
+      {path: 'admin/products/new', component: ProductFormComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]},
+      {path: 'admin/products/:id', component: ProductFormComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]},
+      {path: 'admin/products', component: AdminProductsComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]},
+      {path: 'admin/orders', component: AdminOrdersComponent,
+        canActivate: [AuthGuard, AdminAuthGuard]},
+    ])
   ],
   declarations: [
     AdminProductsComponent,
