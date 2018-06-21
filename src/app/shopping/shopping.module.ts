@@ -1,12 +1,10 @@
-import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {FormsModule} from '@angular/forms';
 import {RouterModule} from '@angular/router';
-import {OrderSuccessComponent} from './components/order-success/order-success.component';
 import {AuthGuard} from '../shared/services/auth-guard.service';
 import {SharedModule} from '../shared/shared.module';
 import {CheckoutComponent} from './components/checkout/checkout.component';
 import {MyOrdersComponent} from './components/my-orders/my-orders.component';
+import {OrderSuccessComponent} from './components/order-success/order-success.component';
 import {ProductFilterComponent} from './components/products/product-filter/product-filter.component';
 import {ProductsComponent} from './components/products/products.component';
 import {ShippingFormComponent} from './components/shipping-form/shipping-form.component';
@@ -15,9 +13,7 @@ import {ShoppingCartComponent} from './components/shopping-cart/shopping-cart.co
 
 @NgModule({
   imports: [
-    CommonModule,
     SharedModule,
-    FormsModule,
     RouterModule.forChild([
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
